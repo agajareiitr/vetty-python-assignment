@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block body%}
+<div class="container">
+    {% if secondnum|int() > firstnum|int() %}  <!-- this line checks if the end line number is grater than start line number and then return appropriate response -->
+        <h1>Reading : {{filename}}</h1>
+        {% if linenumber%}
+            <h2>From line : {{firstnum}} to {{secondnum}}</h2>
+        {%else%}
+            <h2>From line : all lines</h2>
+        {% endif %}
+        <hr>
+        {% for line in lines %}
+            <p>{{line}}</p> <!-- line represents ebery line-->
+        {% endfor%}
+    {%else%}
+        <h2>NOTE: 2nd Number cant be Greater than 1st Number</h2>
+    {% endif%}
+
+</div>
+{%endblock%}
